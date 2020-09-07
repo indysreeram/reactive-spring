@@ -1,0 +1,40 @@
+
+
+GET TO RETRIEVE ALL ITEM
+
+==============================
+
+curl http://localhost:8081/client/retrieve
+
+curl http://localhost:8081/client/exchange
+
+GET TO RETRIEVE SINGLE ITEM
+
+==============================
+
+curl http://localhost:8081/client/exchange/singleItem
+
+curl http://localhost:8081/client/retrieve/singleItem
+
+
+POST TO CREATE A NEW ITEM
+===========================
+curl -d '{"id":null,"description":"Google Nest","price":125.00}' -H "Content-Type: application/json" -X POST http://localhost:8081/client/createItem
+
+
+PUT TO UPDATE AN EXISTING ITEM
+===============================
+
+curl -d '{"id":null,"description":"Google Nest 2","price":129.99}' -H "Content-Type: application/json" -X PUT http://localhost:8081/client/updateItem/5f54c7c8500a784d3e2683ce
+
+
+DELETE AN ITEM
+=================
+
+curl  -X DELETE http://localhost:8081/client/deleteItem/5f54c7c8500a784d3e2683ce
+
+ERROR END POINT
+
+===================
+
+curl http://localhost:8081/client/error/retrieve
