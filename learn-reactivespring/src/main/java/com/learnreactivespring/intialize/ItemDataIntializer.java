@@ -43,9 +43,12 @@ public class ItemDataIntializer implements CommandLineRunner {
 
     private void createCappedCollections() {
 
-        reactiveMongoOperations.dropCollection(ItemCapped.class);
-        reactiveMongoOperations.createCollection(ItemCapped.class,
-                CollectionOptions.empty().maxDocuments(20).size(50000).capped());
+   /*     reactiveMongoOperations.dropCollection(ItemCapped.class).then(
+                        reactiveMongoOperations.createCollection(ItemCapped.class,
+                                        CollectionOptions.empty().maxDocuments(20).size(50000).capped()));*/
+
+        reactiveMongoOperations.dropCollection(ItemCapped.class)
+                .then(reactiveMongoOperations.createCollection(ItemCapped.class, CollectionOptions.empty().maxDocuments(20).size(50000).capped()));
 
 
     }

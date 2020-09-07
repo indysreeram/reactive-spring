@@ -1,4 +1,3 @@
-/*
 package com.learnreactivespring.handlers;
 
 import com.learnreactivespring.constants.ItemConstant;
@@ -41,7 +40,7 @@ public class ItemsStreamHandlerTest {
 
         reactiveMongoOperations.dropCollection(ItemCapped.class);
         reactiveMongoOperations.createCollection(ItemCapped.class,
-                CollectionOptions.empty().maxDocuments(20).size(50000).capped());
+                CollectionOptions.empty().maxDocuments(20).size(50000).capped()).block();
 
         Flux<ItemCapped> itemCappedFlux=  Flux.interval(Duration.ofSeconds(1))
                 .map(i -> new ItemCapped(null, "Random Item "+i,100.00+i))
@@ -71,4 +70,3 @@ public class ItemsStreamHandlerTest {
                 .verify();
     }
 }
-*/
